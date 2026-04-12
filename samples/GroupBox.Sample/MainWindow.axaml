@@ -2,148 +2,119 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:groupBox="clr-namespace:GroupBox.Avalonia;assembly=GroupBox.Avalonia"
         x:Class="GroupBox.Avalonia.Sample.MainWindow"
-        Width="1040"
-        Height="760"
-        MinWidth="860"
-        MinHeight="620"
-        Title="GroupBox.Avalonia Sample"
-        Background="#F4F6FA">
+        Width="860"
+        Height="640"
+        MinWidth="720"
+        MinHeight="520"
+        Title="GroupBox.Avalonia Sample">
   <ScrollViewer>
-    <Grid RowDefinitions="Auto,*"
-          Margin="24"
-          RowSpacing="20">
-      <Border Padding="24"
-              CornerRadius="20"
-              Background="#1D3557">
-        <StackPanel Spacing="10">
-          <TextBlock FontSize="28"
-                     FontWeight="SemiBold"
-                     Foreground="White"
-                     Text="GroupBox control sample" />
-          <TextBlock MaxWidth="720"
-                     FontSize="15"
-                     Foreground="#DCE7F4"
-                     TextWrapping="Wrap"
-                     Text="This sample shows the custom GroupBox control wrapping forms, option sets, summaries, and nested content inside a Fluent-themed desktop window." />
-        </StackPanel>
-      </Border>
+    <StackPanel Margin="20"
+                Spacing="16">
+      <StackPanel Spacing="4">
+        <TextBlock FontSize="22"
+                   FontWeight="SemiBold"
+                   Text="Typical GroupBox usage" />
+        <TextBlock TextWrapping="Wrap"
+                   Text="Common scenarios: grouping form fields, related options, and smaller nested sections." />
+      </StackPanel>
 
-      <Grid Grid.Row="1"
-            ColumnDefinitions="1.15*,0.85*"
-            ColumnSpacing="20"
-            RowDefinitions="Auto,Auto">
+      <Grid ColumnDefinitions="*,*"
+            ColumnSpacing="16"
+            RowDefinitions="Auto,Auto"
+            RowSpacing="16">
         <groupBox:GroupBox Grid.Row="0"
                            Grid.Column="0"
-                           Padding="18"
-                           Header="Project settings">
-          <Grid ColumnDefinitions="*,*"
-                ColumnSpacing="16"
-                RowDefinitions="Auto,Auto,Auto,Auto">
-            <TextBlock Text="Project name" />
+                           Padding="16"
+                           Header="Profile details">
+          <Grid ColumnDefinitions="Auto,*"
+                ColumnSpacing="12"
+                RowDefinitions="Auto,Auto,Auto">
+            <TextBlock VerticalAlignment="Center"
+                       Text="Name" />
+            <TextBox Grid.Column="1"
+                     Text="Jane Doe" />
+
+            <TextBlock Grid.Row="1"
+                       VerticalAlignment="Center"
+                       Text="Email" />
             <TextBox Grid.Row="1"
-                     PlaceholderText="Enter a project name"
-                     Text="Northwind Portal" />
+                     Grid.Column="1"
+                     Text="jane@example.com" />
 
             <TextBlock Grid.Row="2"
-                       Text="Environment" />
-            <ComboBox Grid.Row="3"
-                      SelectedIndex="1">
-              <ComboBoxItem Content="Development" />
-              <ComboBoxItem Content="Staging" />
-              <ComboBoxItem Content="Production" />
+                       VerticalAlignment="Center"
+                       Text="Role" />
+            <ComboBox Grid.Row="2"
+                      Grid.Column="1"
+                      SelectedIndex="0">
+              <ComboBoxItem Content="Designer" />
+              <ComboBoxItem Content="Developer" />
+              <ComboBoxItem Content="Product manager" />
             </ComboBox>
-
-            <TextBlock Grid.Column="1"
-                       Text="Owner" />
-            <TextBox Grid.Row="1"
-                     Grid.Column="1"
-                     PlaceholderText="Assigned owner"
-                     Text="UI Platform" />
-
-            <TextBlock Grid.Row="2"
-                       Grid.Column="1"
-                       Text="Notes" />
-            <TextBox Grid.Row="3"
-                     Grid.Column="1"
-                     AcceptsReturn="True"
-                     Height="88"
-                     Text="The header gap is clipped out of the border so the title reads cleanly against the container background." />
           </Grid>
         </groupBox:GroupBox>
 
-        <groupBox:GroupBox Grid.Row="1"
-                           Grid.Column="0"
-                           Padding="18"
-                           Header="Deployment switches">
-          <StackPanel Spacing="12">
+        <groupBox:GroupBox Grid.Row="0"
+                           Grid.Column="1"
+                           Padding="16"
+                           Header="Notification preferences">
+          <StackPanel Spacing="10">
             <CheckBox IsChecked="True"
-                      Content="Enable health checks before publish" />
+                      Content="Email notifications" />
             <CheckBox IsChecked="True"
-                      Content="Attach release notes to deployment summary" />
-            <CheckBox Content="Require manual approval outside business hours" />
+                      Content="Desktop alerts" />
+            <CheckBox Content="Weekly summary" />
 
-            <Separator Margin="0,4,0,2" />
+            <Separator Margin="0,2,0,2" />
 
             <TextBlock FontWeight="SemiBold"
-                       Text="Traffic allocation" />
-            <Slider Minimum="0"
-                    Maximum="100"
-                    Value="35" />
-            <TextBlock Foreground="#4A5568"
-                       Text="35% of traffic is currently routed to the new release ring." />
+                       Text="Priority" />
+            <RadioButton GroupName="priority"
+                         IsChecked="True"
+                         Content="All updates" />
+            <RadioButton GroupName="priority"
+                         Content="Important only" />
+            <RadioButton GroupName="priority"
+                         Content="Mute" />
           </StackPanel>
         </groupBox:GroupBox>
 
-        <groupBox:GroupBox Grid.RowSpan="2"
-                           Grid.Column="1"
-                           Padding="18"
-                           Header="Usage patterns">
-          <StackPanel Spacing="16">
-            <Border Padding="14"
-                    CornerRadius="14"
-                    Background="#FFFFFF">
-              <StackPanel Spacing="10">
-                <TextBlock FontWeight="SemiBold"
-                           Text="Radio-button grouping" />
-                <StackPanel Spacing="8">
-                  <RadioButton GroupName="release-ring"
-                               IsChecked="True"
-                               Content="Canary" />
-                  <RadioButton GroupName="release-ring"
-                               Content="Broad rollout" />
-                  <RadioButton GroupName="release-ring"
-                               Content="Manual validation only" />
-                </StackPanel>
-              </StackPanel>
-            </Border>
+        <groupBox:GroupBox Grid.Row="1"
+                           Grid.ColumnSpan="2"
+                           Padding="16"
+                           Header="Shipping information">
+          <StackPanel Spacing="12">
+            <TextBlock TextWrapping="Wrap"
+                       Text="A GroupBox can also contain smaller related sections without needing a complex layout." />
 
-            <groupBox:GroupBox Padding="14"
-                               Header="Nested GroupBox">
-              <StackPanel Spacing="8">
-                <TextBlock TextWrapping="Wrap"
-                           Text="The control can host any content, including another GroupBox for more structured sections." />
-                <ProgressBar Height="10"
-                             Minimum="0"
-                             Maximum="100"
-                             Value="68" />
-                <TextBlock Foreground="#4A5568"
-                           Text="Demo progress: 68%" />
-              </StackPanel>
+            <groupBox:GroupBox Padding="12"
+                               Header="Address">
+              <Grid ColumnDefinitions="Auto,*"
+                    ColumnSpacing="12"
+                    RowDefinitions="Auto,Auto,Auto">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Street" />
+                <TextBox Grid.Column="1"
+                         Text="1 Infinite Loop" />
+
+                <TextBlock Grid.Row="1"
+                           VerticalAlignment="Center"
+                           Text="City" />
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Text="Cupertino" />
+
+                <TextBlock Grid.Row="2"
+                           VerticalAlignment="Center"
+                           Text="Country" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Text="USA" />
+              </Grid>
             </groupBox:GroupBox>
-
-            <Border Padding="14"
-                    CornerRadius="14"
-                    Background="#EAF2FF">
-              <StackPanel Spacing="8">
-                <TextBlock FontWeight="SemiBold"
-                           Text="When to use it" />
-                <TextBlock TextWrapping="Wrap"
-                           Text="Use GroupBox when a panel needs a visible label and a strong boundary around related controls, especially for forms, settings, and nested workflows." />
-              </StackPanel>
-            </Border>
           </StackPanel>
         </groupBox:GroupBox>
       </Grid>
-    </Grid>
+    </StackPanel>
   </ScrollViewer>
 </Window>
