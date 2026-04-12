@@ -20,7 +20,8 @@ Add `<StyleInclude Source="avares://GroupBox.Avalonia/GroupBox.axaml" />` to you
 ```xaml
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="clr-namespace:Avalonia.Themes.Fluent;assembly=Avalonia.Themes.Fluent">
+             xmlns:themes="clr-namespace:Avalonia.Themes.Fluent;assembly=Avalonia.Themes.Fluent"
+             xmlns:groupBox="clr-namespace:GroupBox.Avalonia;assembly=GroupBox.Avalonia">
   <Application.Styles>
     <themes:FluentTheme />
     <StyleInclude Source="avares://GroupBox.Avalonia/GroupBox.axaml" />
@@ -29,12 +30,12 @@ Add `<StyleInclude Source="avares://GroupBox.Avalonia/GroupBox.axaml" />` to you
 ```
 
 ```xaml
-<GroupBox Header="GroupBox">
+<groupBox:GroupBox Header="GroupBox">
   <StackPanel>
     <RadioButton Content="RadioButton1" />
     <RadioButton Content="RadioButton2" />
   </StackPanel>
-</GroupBox>
+</groupBox:GroupBox>
 ```
 
 ## Sample app
