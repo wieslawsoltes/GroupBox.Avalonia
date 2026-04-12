@@ -18,19 +18,34 @@ A GroupBox control for Avalonia.
 Add `<StyleInclude Source="avares://GroupBox.Avalonia/GroupBox.axaml" />` to your application styles.
 
 ```xaml
-<Application.Styles>
-  <FluentTheme />
-  <StyleInclude Source="avares://GroupBox.Avalonia/GroupBox.axaml" />
-</Application.Styles>
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:themes="clr-namespace:Avalonia.Themes.Fluent;assembly=Avalonia.Themes.Fluent"
+             xmlns:groupBox="clr-namespace:GroupBox.Avalonia;assembly=GroupBox.Avalonia">
+  <Application.Styles>
+    <themes:FluentTheme />
+    <StyleInclude Source="avares://GroupBox.Avalonia/GroupBox.axaml" />
+  </Application.Styles>
+</Application>
 ```
 
 ```xaml
-<GroupBox Header="GroupBox">
+<groupBox:GroupBox Header="GroupBox">
   <StackPanel>
     <RadioButton Content="RadioButton1" />
     <RadioButton Content="RadioButton2" />
   </StackPanel>
-</GroupBox>
+</groupBox:GroupBox>
+```
+
+## Sample app
+
+A desktop sample application is available under `samples/GroupBox.Sample`.
+
+Run it with:
+
+```bash
+dotnet run --project samples/GroupBox.Sample/GroupBox.Sample.csproj
 ```
 
 ## License

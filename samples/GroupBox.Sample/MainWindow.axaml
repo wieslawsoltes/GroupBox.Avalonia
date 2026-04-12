@@ -1,0 +1,120 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:groupBox="clr-namespace:GroupBox.Avalonia;assembly=GroupBox.Avalonia"
+        x:Class="GroupBox.Avalonia.Sample.MainWindow"
+        Width="860"
+        Height="640"
+        MinWidth="720"
+        MinHeight="520"
+        Title="GroupBox.Avalonia Sample">
+  <ScrollViewer>
+    <StackPanel Margin="20"
+                Spacing="16">
+      <StackPanel Spacing="4">
+        <TextBlock FontSize="22"
+                   FontWeight="SemiBold"
+                   Text="Typical GroupBox usage" />
+        <TextBlock TextWrapping="Wrap"
+                   Text="Common scenarios: grouping form fields, related options, and smaller nested sections." />
+      </StackPanel>
+
+      <Grid ColumnDefinitions="*,*"
+            ColumnSpacing="16"
+            RowDefinitions="Auto,Auto"
+            RowSpacing="16">
+        <groupBox:GroupBox Grid.Row="0"
+                           Grid.Column="0"
+                           Padding="16"
+                           Header="Profile details">
+          <Grid ColumnDefinitions="Auto,*"
+                ColumnSpacing="12"
+                RowDefinitions="Auto,Auto,Auto">
+            <TextBlock VerticalAlignment="Center"
+                       Text="Name" />
+            <TextBox Grid.Column="1"
+                     Text="Jane Doe" />
+
+            <TextBlock Grid.Row="1"
+                       VerticalAlignment="Center"
+                       Text="Email" />
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     Text="jane@example.com" />
+
+            <TextBlock Grid.Row="2"
+                       VerticalAlignment="Center"
+                       Text="Role" />
+            <ComboBox Grid.Row="2"
+                      Grid.Column="1"
+                      SelectedIndex="0">
+              <ComboBoxItem Content="Designer" />
+              <ComboBoxItem Content="Developer" />
+              <ComboBoxItem Content="Product manager" />
+            </ComboBox>
+          </Grid>
+        </groupBox:GroupBox>
+
+        <groupBox:GroupBox Grid.Row="0"
+                           Grid.Column="1"
+                           Padding="16"
+                           Header="Notification preferences">
+          <StackPanel Spacing="10">
+            <CheckBox IsChecked="True"
+                      Content="Email notifications" />
+            <CheckBox IsChecked="True"
+                      Content="Desktop alerts" />
+            <CheckBox Content="Weekly summary" />
+
+            <Separator Margin="0,2,0,2" />
+
+            <TextBlock FontWeight="SemiBold"
+                       Text="Priority" />
+            <RadioButton GroupName="priority"
+                         IsChecked="True"
+                         Content="All updates" />
+            <RadioButton GroupName="priority"
+                         Content="Important only" />
+            <RadioButton GroupName="priority"
+                         Content="Mute" />
+          </StackPanel>
+        </groupBox:GroupBox>
+
+        <groupBox:GroupBox Grid.Row="1"
+                           Grid.ColumnSpan="2"
+                           Padding="16"
+                           Header="Shipping information">
+          <StackPanel Spacing="12">
+            <TextBlock TextWrapping="Wrap"
+                       Text="A GroupBox can also contain smaller related sections without needing a complex layout." />
+
+            <groupBox:GroupBox Padding="12"
+                               Header="Address">
+              <Grid ColumnDefinitions="Auto,*"
+                    ColumnSpacing="12"
+                    RowDefinitions="Auto,Auto,Auto">
+                <TextBlock VerticalAlignment="Center"
+                           Text="Street" />
+                <TextBox Grid.Column="1"
+                         Text="1 Infinite Loop" />
+
+                <TextBlock Grid.Row="1"
+                           VerticalAlignment="Center"
+                           Text="City" />
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Text="Cupertino" />
+
+                <TextBlock Grid.Row="2"
+                           VerticalAlignment="Center"
+                           Text="Country" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Text="USA" />
+              </Grid>
+            </groupBox:GroupBox>
+          </StackPanel>
+        </groupBox:GroupBox>
+      </Grid>
+    </StackPanel>
+  </ScrollViewer>
+</Window>

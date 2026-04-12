@@ -1,18 +1,19 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:GroupBox.Avalonia;assembly=GroupBox.Avalonia">
 
   <Design.PreviewWith>
-    <GroupBox Header="GroupBox" Margin="5">
+    <local:GroupBox Header="GroupBox" Margin="5">
       <StackPanel>
         <RadioButton Content="RadioButton1" />
         <RadioButton Content="RadioButton2" />
       </StackPanel>
-    </GroupBox>
+    </local:GroupBox>
   </Design.PreviewWith>
   
   <Styles.Resources>
 
-    <ControlTheme TargetType="GroupBox" x:Key="{x:Type GroupBox}">
+    <ControlTheme TargetType="local:GroupBox" x:Key="{x:Type local:GroupBox}">
       
       <Setter Property="BorderBrush" Value="{DynamicResource TextControlForeground}" />
       <Setter Property="BorderThickness" Value="1" />
@@ -44,7 +45,7 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}">
               <Border.Clip>
-                <MultiBinding Converter="{GroupBoxClipConverter}">
+                <MultiBinding Converter="{local:GroupBoxClipConverter}">
                   <Binding ElementName="PART_Border" Path="Bounds" />
                   <Binding ElementName="PART_HeaderContentPresenter" Path="Bounds" />
                 </MultiBinding>
