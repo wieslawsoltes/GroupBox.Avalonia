@@ -3,7 +3,7 @@
         xmlns:local="clr-namespace:GroupBox.Avalonia;assembly=GroupBox.Avalonia">
 
   <Design.PreviewWith>
-    <local:GroupBox Header="GroupBox">
+    <local:GroupBox Header="GroupBox" Margin="5">
       <StackPanel>
         <RadioButton Content="RadioButton1" />
         <RadioButton Content="RadioButton2" />
@@ -39,6 +39,7 @@
                     Grid.RowSpan="3"
                     Grid.Column="0"
                     Grid.ColumnSpan="4"
+                    Margin="0,0,1,1"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
